@@ -1,0 +1,21 @@
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #0b1641;
+  color: white;
+  padding-left: 12.01%;;
+  height: 50px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+    color: #FFFFFF;
+
+  &__logo {
+    margin-right: 15px;
+  }
+}
