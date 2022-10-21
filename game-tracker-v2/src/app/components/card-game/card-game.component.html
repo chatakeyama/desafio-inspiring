@@ -16,11 +16,11 @@
             <small><del>{{oferta.normalPrice}}</del></small>
           </div>
           <div class="card__new-price">
-            {{oferta.salePrice}}
+            ${{oferta.salePrice}}
           </div>
         </div>
         <div class="card__discount">
-          GRÁTIS
+          {{ discount(oferta.normalPrice, oferta.salePrice) }}
         </div>
       </div>
     </div>
