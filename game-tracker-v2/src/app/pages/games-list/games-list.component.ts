@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IOferta } from 'src/app/interfaces/IOferta.interface';
 import { ofertas } from '../../data/ofertas';
 
 @Component({
@@ -7,7 +8,7 @@ import { ofertas } from '../../data/ofertas';
   styleUrls: ['./games-list.component.scss']
 })
 export class GamesListComponent implements OnInit {
-  ofertas: any = ofertas;
+  ofertas: IOferta[] = ofertas;
 
   constructor() {}
 
