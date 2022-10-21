@@ -7,6 +7,7 @@ import { CardGameComponent } from './components/card-game/card-game.component';
 import { GamesListComponent } from './pages/games-list/games-list.component';
 import { SlicePipe } from './pipes/slice-text.pipe';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { SelectOrderComponent } from './components/select-order/select-order.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     GamesListComponent,
     SlicePipe,
     SearchInputComponent,
+    SelectOrderComponent,
   ],
   imports: [
     BrowserModule,

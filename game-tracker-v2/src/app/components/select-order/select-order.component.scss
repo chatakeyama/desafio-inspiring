@@ -1,0 +1,35 @@
+@import "../../../styles/variables.scss";
+
+@mixin font {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.select {
+  width: 180px;
+  height: 50px;
+  background-color: $primary;
+  border: none;
+  border-radius: $radius;
+  color: $text;
+  @include font;
+  padding-left: 17px;
+  padding-right: 20px;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("/assets/images/expand_more_24px.png");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 13px) center;
+
+  option {
+    @include font;
+    border-radius: $radius;
+  }
+
+  &__first-option {
+    color: $secondary;
+  }
+}
