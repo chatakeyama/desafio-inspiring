@@ -1,9 +1,9 @@
-import { HeaderComponent } from './components/header/header.component';
+import { GamesListComponent } from './pages/games-list/games-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: HeaderComponent},
+  { path: '', component: GamesListComponent },
 ];
 
 @NgModule({

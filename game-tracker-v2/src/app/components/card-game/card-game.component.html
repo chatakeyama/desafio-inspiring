@@ -1,0 +1,28 @@
+<article class="card">
+  <img class="card__img" src={{oferta.thumb}} alt={{oferta.title}}>
+  <div class="card__info">
+    <header>
+      <h2 class="card__header">
+        {{oferta.title | sliceText: 27}}
+      </h2>
+    </header>
+    <div class="card__footer">
+      <button class="card__button">
+        DETALHES
+      </button>
+      <div class="card__offer">
+        <div class="card__prices">
+          <div class="card__old-price">
+            <small><del>{{oferta.normalPrice}}</del></small>
+          </div>
+          <div class="card__new-price">
+            {{oferta.salePrice}}
+          </div>
+        </div>
+        <div class="card__discount">
+          GRÁTIS
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,81 @@
+@import "../../../styles/variables.scss";
+
+$radius: 8px;
+
+.card {
+  max-width: 380px;
+  color: $text;
+  background-color: $primary;
+  border-radius: $radius;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+  display: grid; //elimina espaço entre img e header
+
+  &__img {
+    border-radius: $radius $radius 0 0;
+    width: 380px;
+    object-fit: cover;
+    height: 147px;
+  }
+
+  &__header {
+    margin-bottom: 14px;
+    font-weight: 300; 
+    font-size: 24px;
+    line-height: 28.13px;
+  }
+
+  &__info {
+    max-width: 460px;
+    padding: 7px 16px 16px 16px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    border: none;
+    height: 39px;
+    padding: 9px 21px;
+    text-align: center;
+    background-color: $secondary;
+    color: $text;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: $radius;
+    font-family: inherit;
+  }
+
+  &__offer {
+    display: flex;
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__new-price {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__old-price {
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  &__discount {
+    height: 39px;
+    margin-left: 10px;
+    padding: 9px 21px;
+    background-color: $success;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    border-radius: $radius;
+    font-family: inherit;
+  }
+}
