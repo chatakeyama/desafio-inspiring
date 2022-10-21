@@ -2,34 +2,65 @@
 
 @mixin font {
   font-family: inherit;
+  color: $text;
   font-size: 18px;
   font-weight: 100;
 }
 
-.select {
-  width: 180px;
-  height: 50px;
-  background-color: $primary;
-  border: none;
-  border-radius: $radius;
-  color: $text;
-  @include font;
-  padding-left: 17px;
-  padding-right: 20px;
-
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("/assets/images/expand_more_24px.png");
-  background-repeat: no-repeat;
-  background-position: calc(100% - 13px) center;
-
-  option {
-    @include font;
-    border-radius: $radius;
+.order {
+  @media (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  &__first-option {
-    color: $secondary;
+  &__label {
+    @include font;
+    font-weight: 700;
+    margin-right: 20px;
+    @media (max-width: $desktop) {
+      font-size: 11px;
+      padding-bottom: 4px;
+    }
+  }
+
+  &__select {
+    width: 180px;
+    height: 50px;
+    background-color: $primary;
+    border: none;
+    border-radius: $radius-desktop;
+    @include font;
+    padding-left: 17px;
+    padding-right: 20px;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("/assets/images/expand_more_24px.png");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 13px) center;
+
+    @media (max-width: $desktop) {
+      font-size: 14px;
+      width: 122px;
+      padding-left: 8px;
+      height: 36px;
+      background-image: url("/assets/images/expand_more_mobile.png");
+      background-position: calc(100% - 8px) center;
+    }
+
+    option {
+      @include font;
+      border-radius: $radius-desktop;
+      @media (max-width: $desktop) {
+        font-size: 15px;
+        width: 160px;
+      }
+    }
+
+    &__first-option {
+      color: $secondary;
+    }
   }
 }

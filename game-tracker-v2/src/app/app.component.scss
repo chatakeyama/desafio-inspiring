@@ -3,9 +3,11 @@
 .content {
   display: flex;
   justify-content: center;
-  padding: 80px 30px;
+  padding: 95px 0;
   margin: 0 auto;
+  max-width: 1250px;
+
   @media (max-width: $desktop) {
-    padding: 70px 20px;
+    padding: 66px 0;
   }
 }
