@@ -8,9 +8,21 @@ import { ofertas } from '../../data/ofertas';
   styleUrls: ['./games-list.component.scss']
 })
 export class GamesListComponent implements OnInit {
-  ofertas: IOferta[] = ofertas;
+  ofertas: IOferta[] = ofertas
+  filteredOfertas: IOferta[] = []
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filteredOfertas = ofertas
+  }
+
+  filterGames(searchText: string): void {
+    if (searchText) {
+      searchText = searchText.trim().toLowerCase()
+      this.filteredOfertas = this.ofertas.filter(oferta => oferta.title.toLowerCase().includes(searchText))
+    } else {
+      this.filteredOfertas = ofertas
+    }
+  }
 }

@@ -1,8 +1,10 @@
+<h1 class="title">Ofertas</h1>
 <div class="row">
-  <app-search-input></app-search-input>
+  <app-search-input (emitSearchValue)="filterGames($event)"></app-search-input>
   <app-select-order></app-select-order>
 </div>
 
-<section class="card-list">
-  <app-card-game *ngFor="let game of ofertas" [oferta]="game"></app-card-game>
+<section *ngIf="filteredOfertas.length>0; else notFoundMessage" class="card-list">
+  <app-card-game *ngFor="let game of filteredOfertas" [oferta]="game"></app-card-game>
 </section>
+<ng-template #notFoundMessage>Nenhum item encontrado.</ng-template>
