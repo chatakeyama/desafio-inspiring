@@ -1,11 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-interface Oferta {
-  title: string
-  salePrice: string
-  normalPrice: string
-  thumb: string
-}
+import { Game } from 'src/app/models/game.model';
 
 @Component({
   selector: 'app-card-game',
@@ -15,34 +9,9 @@ interface Oferta {
 
 export class CardGameComponent implements OnInit {
 
-  @Input() oferta!: Oferta
+  @Input() game!: Game
   constructor() { }
 
   ngOnInit(): void { }
-
-  calculateDiscount(oldValue: number, newValue: number): number {
-    if (newValue < oldValue) {
-      return Math.round((oldValue - newValue) * 100 / oldValue)
-    }
-    return 0
-  }
-
-  discount(oldValue: string, newValue: string): string {
-    const oldValueNumber = this.convertTextToNumber(oldValue)
-    const newValueNumber = this.convertTextToNumber(newValue)
-    const discount = this.calculateDiscount(oldValueNumber, newValueNumber)
-    return this.displayDiscount(discount)
-  }
-
-  displayDiscount(value: number): string {
-    if (value === 100) {
-      return "GRÁTIS"
-    }
-    return `${value}%`
-  }
-
-  convertTextToNumber(textNumber: string): number {
-    return Number.parseFloat(textNumber.replace(',', '.'))
-  }
 
 }

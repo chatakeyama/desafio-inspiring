@@ -1,9 +1,9 @@
 <article class="card">
-  <img class="card__img" src={{oferta.thumb}} alt={{oferta.title}}>
+  <img class="card__img" src={{game.thumb}} alt={{game.title}}>
   <div class="card__info">
     <header>
       <h2 class="card__header">
-        {{oferta.title | sliceText: 27}}
+        {{game.title | sliceText: 27}}
       </h2>
     </header>
     <div class="card__footer">
@@ -13,14 +13,14 @@
       <div class="card__offer">
         <div class="card__prices">
           <div class="card__old-price">
-            <small><del>{{oferta.normalPrice}}</del></small>
+            <small><del>{{game.normalPrice}}</del></small>
           </div>
           <div class="card__new-price">
-            ${{oferta.salePrice}}
+            ${{game.salePrice}}
           </div>
         </div>
         <div class="card__discount">
-          {{ discount(oferta.normalPrice, oferta.salePrice) }}
+          {{ game.displayDiscount() }}
         </div>
       </div>
     </div>

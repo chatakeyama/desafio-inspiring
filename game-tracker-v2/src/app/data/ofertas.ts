@@ -1,4 +1,6 @@
-export const ofertas = [
+import { IOferta } from "../interfaces/IOferta.interface";
+
+export const ofertas: IOferta[] = [
   {
     title: "RAGE 2",
     salePrice: "0,00",

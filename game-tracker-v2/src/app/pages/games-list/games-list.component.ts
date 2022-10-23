@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IOferta } from 'src/app/interfaces/IOferta.interface';
+import { IGameSortOption } from 'src/app/interfaces/IGameSortOption.interface';
+import { Game } from 'src/app/models/game.model';
 import { ofertas } from '../../data/ofertas';
 
 @Component({
@@ -8,21 +9,26 @@ import { ofertas } from '../../data/ofertas';
   styleUrls: ['./games-list.component.scss']
 })
 export class GamesListComponent implements OnInit {
-  ofertas: IOferta[] = ofertas
-  filteredOfertas: IOferta[] = []
+  originalGames: Game[] = []
+  filteredGames: Game[] = []
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    this.filteredOfertas = ofertas
+    this.originalGames = ofertas.map(oferta => new Game(oferta))
+    this.filteredGames = this.originalGames
   }
 
   filterGames(searchText: string): void {
     if (searchText) {
       searchText = searchText.trim().toLowerCase()
-      this.filteredOfertas = this.ofertas.filter(oferta => oferta.title.toLowerCase().includes(searchText))
+      this.filteredGames = this.originalGames.filter(oferta => oferta.title.toLowerCase().includes(searchText))
     } else {
-      this.filteredOfertas = ofertas
+      this.filteredGames = this.originalGames
     }
+  }
+
+  sortGames(option: IGameSortOption) {
+    option.sortCallback(this.filteredGames)
   }
 }
