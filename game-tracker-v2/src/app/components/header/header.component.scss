@@ -1,11 +1,14 @@
+@import "../../../styles/variables.scss";
+
 .header {
   position: fixed;
+  z-index: 100;
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #0b1641;
   color: white;
-  padding-left: 12.01%;;
   height: 50px;
 
   font-family: 'Roboto';
@@ -13,9 +16,26 @@
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
-    color: #FFFFFF;
+  color: #ffffff;
 
   &__logo {
     margin-right: 15px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 1190px;
+
+    @media (max-width: 1250px) {
+      width: 780px;
+    }
+    @media (min-width: $desktop) and (max-width: 820px) {
+      width: 740px;
+    }
+    @media (max-width: $desktop) {
+      justify-content: center;
+      width: 304px;
+    }
   }
 }
