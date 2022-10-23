@@ -52,11 +52,13 @@
 
     option {
       @include font;
-      border-radius: $radius-desktop;
       @media (max-width: $desktop) {
         font-size: 15px;
-        width: 160px;
       }
+    }
+
+    option:checked {
+      color: $secondary;
     }
 
     &__first-option {
