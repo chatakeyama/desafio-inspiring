@@ -1,5 +1,5 @@
 <article class="card">
-  <img class="card__img" src={{game.thumb}} alt={{game.title}}>
+  <img class="card__img" src={{getImageUrl(game.steamAppID)}} (error)="onImageError($event)" alt={{game.title}}>
   <div class="card__info">
     <header>
       <h2 class="card__header">

@@ -3,4 +3,5 @@ export interface IOferta {
   salePrice: string
   normalPrice: string
   thumb: string
+  steamAppID: number
 }

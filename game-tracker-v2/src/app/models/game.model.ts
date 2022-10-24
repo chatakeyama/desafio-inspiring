@@ -6,12 +6,14 @@ export class Game {
   salePrice: string = ''
   normalPrice: string = ''
   thumb: string = ''
+  steamAppID: number = 0
 
   constructor(oferta: IOferta) {
     this.title = oferta.title
     this.salePrice = oferta.salePrice
     this.normalPrice = oferta.normalPrice
     this.thumb = oferta.thumb
+    this.steamAppID = oferta.steamAppID
   }
 
   getDiscount(): number {

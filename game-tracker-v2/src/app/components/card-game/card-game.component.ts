@@ -14,4 +14,12 @@ export class CardGameComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  getImageUrl(steamAppID: number) {
+    return `https://cdn.akamai.steamstatic.com/steam/apps/${steamAppID}/header.jpg`
+  }
+
+  onImageError(event: Event) {
+    (event.target as HTMLInputElement).src = '/assets/images/sem_imagem.png'
+  }
+
 }
