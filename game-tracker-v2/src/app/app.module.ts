@@ -10,6 +10,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { SelectOrderComponent } from './components/select-order/select-order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     SearchInputComponent,
     SelectOrderComponent,
     LoadingComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
