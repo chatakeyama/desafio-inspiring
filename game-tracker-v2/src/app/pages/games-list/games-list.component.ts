@@ -14,6 +14,7 @@ export class GamesListComponent implements OnInit {
   filteredGames: Game[] = []
   serverError: boolean = false
   games$: Observable<Game[]> = new Observable<Game[]>();
+  loading: boolean = true
 
   constructor(private httpService: HttpGameService) { }
 
@@ -22,14 +23,17 @@ export class GamesListComponent implements OnInit {
   }
 
   getGamesFromServer(): void {
+    this.loading = true
     this.httpService.getGamesList().subscribe({
       next: (response) => {
         this.originalGames = response
-        this.filteredGames = this.originalGames
+        this.filteredGames = response
       },
       error: () => {
+        this.loading = false
         this.serverError = true
-      }
+      },
+      complete: () => { this.loading = false }
     })
   }
 

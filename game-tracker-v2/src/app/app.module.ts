@@ -9,6 +9,7 @@ import { SlicePipe } from './pipes/slice-text.pipe';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SelectOrderComponent } from './components/select-order/select-order.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     SlicePipe,
     SearchInputComponent,
     SelectOrderComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
