@@ -8,7 +8,7 @@
 }
 
 .order {
-  @media (max-width: $desktop) {
+  @media (max-width: $desktop-sm) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,8 @@
     @include font;
     font-weight: 700;
     margin-right: 20px;
-    @media (max-width: $desktop) {
+
+    @media (max-width: $desktop-sm) {
       font-size: 11px;
       padding-bottom: 4px;
     }
@@ -41,7 +42,7 @@
     background-repeat: no-repeat;
     background-position: calc(100% - 13px) center;
 
-    @media (max-width: $desktop) {
+    @media (max-width: $desktop-sm) {
       font-size: 14px;
       width: 122px;
       padding-left: 8px;
@@ -52,7 +53,8 @@
 
     option {
       @include font;
-      @media (max-width: $desktop) {
+      
+      @media (max-width: $desktop-sm) {
         font-size: 15px;
       }
     }
