@@ -8,6 +8,7 @@ import { GamesListComponent } from './pages/games-list/games-list.component';
 import { SlicePipe } from './pipes/slice-text.pipe';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SelectOrderComponent } from './components/select-order/select-order.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SelectOrderComponent } from './components/select-order/select-order.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

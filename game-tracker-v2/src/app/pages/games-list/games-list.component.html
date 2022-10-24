@@ -1,10 +1,18 @@
 <h1 class="title">Ofertas</h1>
-<div class="row">
-  <app-search-input (emitSearchValue)="filterGames($event)"></app-search-input>
-  <app-select-order (emitSortSelection)="sortGames($event)"></app-select-order>
-</div>
 
-<section *ngIf="filteredGames.length>0; else notFoundMessage" class="card-list">
-  <app-card-game *ngFor="let game of filteredGames" [game]="game"></app-card-game>
-</section>
-<ng-template #notFoundMessage>Nenhum item encontrado.</ng-template>
+<div *ngIf="serverError; then error else success"></div>
+
+<ng-template #error>
+  <div class="row" role="alert">Houve uma falha do servidor. Por favor, tente novamente mais tarde.</div>
+</ng-template>
+
+<ng-template #success>
+  <div class="row">
+    <app-search-input (emitSearchValue)="filterGames($event)"></app-search-input>
+    <app-select-order (emitSortSelection)="sortGames($event)"></app-select-order>
+  </div>
+  <section *ngIf="filteredGames.length>0; else notFoundMessage" class="card-list">
+    <app-card-game *ngFor="let game of filteredGames" [game]="game"></app-card-game>
+  </section>
+  <ng-template #notFoundMessage>Nenhum item encontrado.</ng-template>
+</ng-template>

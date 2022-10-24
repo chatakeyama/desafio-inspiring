@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IGameSortOption } from 'src/app/interfaces/IGameSortOption.interface';
 import { Game } from 'src/app/models/game.model';
-import { ofertas } from '../../data/ofertas';
+import { HttpGameService } from 'src/app/services/http-game.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-games-list',
@@ -11,12 +12,25 @@ import { ofertas } from '../../data/ofertas';
 export class GamesListComponent implements OnInit {
   originalGames: Game[] = []
   filteredGames: Game[] = []
+  serverError: boolean = false
+  games$: Observable<Game[]> = new Observable<Game[]>();
 
-  constructor() { }
+  constructor(private httpService: HttpGameService) { }
 
-  ngOnInit(): void {
-    this.originalGames = ofertas.map(oferta => new Game(oferta))
-    this.filteredGames = this.originalGames
+  ngOnInit() {
+    this.getGamesFromServer()
+  }
+
+  getGamesFromServer(): void {
+    this.httpService.getGamesList().subscribe({
+      next: (response) => {
+        this.originalGames = response
+        this.filteredGames = this.originalGames
+      },
+      error: () => {
+        this.serverError = true
+      }
+    })
   }
 
   filterGames(searchText: string): void {
