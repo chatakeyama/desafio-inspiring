@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IOferta } from 'src/app/interfaces/IOferta.interface';
+import { OfertasService } from 'src/app/services/ofertas.service';
 
 @Component({
   selector: 'app-cadastro-ofertas',
@@ -13,9 +16,17 @@ export class CadastroOfertasComponent implements OnInit {
     { id: 3, nome: 'Steam' },
   ];
 
-  constructor() { }
+  oferta: IOferta = null
+  title: string = 'Cadastro de ofertas'
+
+  constructor(private route: ActivatedRoute, private ofertasService: OfertasService) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.params['id']
+    if(id){
+      this.oferta = this.ofertasService.getOfertaById(Number.parseInt(id))
+      this.title = "Edição de oferta"
+    }
   }
 
 }
