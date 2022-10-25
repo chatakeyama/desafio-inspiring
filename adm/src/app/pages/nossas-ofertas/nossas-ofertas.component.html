@@ -2,6 +2,10 @@
     <div class="container">
         <h2>Nossas Ofertas</h2>
 
+        <div class="row-btn-create" >
+            <button routerLink="/cadastro-ofertas" mat-raised-button><span class="material-icons">add</span> Criar oferta</button>
+        </div>
+
         <table mat-table [dataSource]="dataSource">
 
             <ng-container matColumnDef="id">

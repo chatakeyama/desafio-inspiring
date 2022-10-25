@@ -15,4 +15,16 @@ section {
             color: #c70160;
         }
     }
+
+    .row-btn-create{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        margin-top: -20px;
+
+        button{
+            background-color: #0b1641;
+            color: #fff;
+        }
+    }
 }
