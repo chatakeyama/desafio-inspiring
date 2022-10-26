@@ -1,5 +1,7 @@
+@import "../../styles/variables.scss";
+
 .grid {
-  max-width: 1200px;
+  max-width: $width;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
@@ -18,8 +20,4 @@
 
 .errorMessage {
   margin-top: -12px;
-}
-
-.errorInput{
-  background-color: pink;
 }

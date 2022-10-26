@@ -1,15 +1,17 @@
+@import "./styles/variables.scss";
+
 header {
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: #0b1641;
+    background-color: $primary;
 
     .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        max-width: 1200px;
+        max-width: $width;
         margin: 0 auto;
 
         nav {
@@ -23,13 +25,13 @@ header {
                 color: #fff;
 
                 &:hover {
-                    color: #c70160;
+                    color: $secondary;
                 }
             }
 
             .active-link {
                 font-weight: bold;
-                color: #c70160;
+                color: $secondary;
             }
         }
     }

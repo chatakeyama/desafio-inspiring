@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./app/styles/variables.scss";
 
 html,
 body {
@@ -16,10 +17,10 @@ section {
 
     h2 {
         margin-bottom: 0;
-        color: #c70160;
+        color: $secondary;
     }
 }
 
 .container {
-    width: 1200px;
+    width: $width;
 }
