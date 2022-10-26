@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { FormCadastroComponent } from './components/form-cadastro/form-cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatGridListModule,
     MatButtonModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

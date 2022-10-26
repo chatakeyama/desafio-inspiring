@@ -4,6 +4,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { onlyNumberValidator, onlyIntegerNumberValidator, precoDescontoValidator } from '../../validators/ofertaFormValidators';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OfertaModel } from 'src/app/models/oferta.model';
+import { ToastrService } from 'ngx-toastr';
 
 export class PrecoErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -45,10 +48,19 @@ export class FormCadastroComponent implements OnInit {
 
   @Input() dataForm: IOferta
 
-  constructor(private ofertaService: OfertasService) { }
+  isNewOferta: boolean
+  idOferta: number
+
+  constructor(private ofertaService: OfertasService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
+
   ngOnInit(): void {
     this.ofertaForm.patchValue(this.dataForm)
-
+    this.idOferta = this.route.snapshot.params['id']
+    this.idOferta ? this.isNewOferta = false : this.isNewOferta = true
   }
 
   get id() { return this.ofertaForm.get('id') }
@@ -60,13 +72,23 @@ export class FormCadastroComponent implements OnInit {
 
   uniqueIdValidator(): ValidatorFn | null {
     return (control: AbstractControl): ValidationErrors => {
-      const isUnique = this.ofertaService.isUniqueId(control.value)
-      return isUnique ? null : { notUnique: { value: control.value } };
-    };
+      if (this.isNewOferta) {
+        const isUnique = this.ofertaService.isUniqueId(control.value)
+        return isUnique ? null : { notUnique: { value: control.value } };
+      }
+      return null
+    }
   }
 
   onSubmit() {
-    console.warn(this.ofertaForm.errors);
+    const ofertaModel = new OfertaModel(this.ofertaForm.value)
+    const success = this.isNewOferta ? this.ofertaService.createOferta(ofertaModel) : this.ofertaService.saveOferta(this.idOferta, ofertaModel)
+    if (success) {
+      this.toastr.success('Salvo com sucesso!');
+      this.router.navigate(['/nossas-ofertas']);
+    }else{
+      this.toastr.error('Houve um erro e a oferta não foi salva. Tente novamente mais tarde. ');
+    }
   }
 
 }
