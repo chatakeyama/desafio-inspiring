@@ -2,8 +2,9 @@
     <div class="container">
         <h2>Nossas Ofertas</h2>
 
-        <div class="row-btn-create" >
-            <button routerLink="/cadastro-ofertas" mat-raised-button><span class="material-icons">add</span> Criar oferta</button>
+        <div class="row-btn-create">
+            <button routerLink="/cadastro-ofertas" mat-raised-button><span class="material-icons">add</span> Criar
+                oferta</button>
         </div>
 
         <table mat-table [dataSource]="dataSource">
@@ -31,8 +32,9 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef> </th>
                 <td mat-cell *matCellDef="let element">
-                    <a routerLink="/cadastro-ofertas/{{element.id}}"><span class="material-icons">edit</span>
-                        Editar</a>
+                    <button  mat-mini-fab routerLink="/cadastro-ofertas/{{element.id}}">
+                        <span class="material-icons">edit</span>
+                    </button>
                 </td>
             </ng-container>
 

@@ -16,15 +16,19 @@ section {
         }
     }
 
-    .row-btn-create{
+    .row-btn-create {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 20px;
         margin-top: -20px;
 
-        button{
+        button {
             background-color: #0b1641;
             color: #fff;
         }
     }
+}
+
+.mat-mini-fab.mat-accent {
+    background-color: #c70160;
 }
