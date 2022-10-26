@@ -19,4 +19,9 @@ export class OfertasService {
     return ofertas.find((oferta) => oferta.id == id)
   }
 
+  isUniqueId(id: number): boolean {
+    const ofertas: IOferta[] = this.getOfertas()
+    return !ofertas.some((oferta) => oferta.id == id)
+  }
+
 }

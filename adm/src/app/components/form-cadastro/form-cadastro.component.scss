@@ -9,8 +9,17 @@
 .campos {
   padding: 10px;
   padding-left: 0;
+  height: 80px;
 
   mat-form-field {
     width: 100%;
   }
+}
+
+.errorMessage {
+  margin-top: -12px;
+}
+
+.errorInput{
+  background-color: pink;
 }
