@@ -1,7 +1,7 @@
 # Game Tracker - Inspiring Stefanini
 
 Projeto de desenvolvimento frontend para teste técnico do processo seletivo da empresa Inspiring Stefanini.  
-A descrição do desafio encontra-se abaixo das intruções de execução deste projeto, [aqui](##desafio-inspiring-:muscle:)
+A descrição do desafio encontra-se abaixo das intruções de execução deste projeto.
 
 ## Sobre o projeto desenvolvido
 
