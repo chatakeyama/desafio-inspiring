@@ -1,3 +1,32 @@
+# Game Tracker - Inspiring Stefanini
+
+Projeto de desenvolvimento frontend para teste técnico do processo seletivo da empresa Inspiring Stefanini.  
+A descrição do desafio encontra-se abaixo das intruções de execução deste projeto, [aqui](##desafio-inspiring-:muscle:)
+
+## Sobre o projeto desenvolvido
+
+Este projeto foi desenvolvido utilizando a versão v14.15.5 do NodeJs.
+>[ Node.js]( https://nodejs.org/dist/v14.15.5/)
+
+### Execução das aplicações
+
+Para inicializar a aplicação do projeto da **Parte 1 - Game Tracker**, entre na pasta *game-tracker-v2/* e execute os seguintes comandos: 
+```
+npm install
+npm run start
+```
+A aplicação estará acessível em http://localhost:4200
+
+Para inicializar a aplicação do projeto da **Parte 2 - Game Tracker Admin**, entre na pasta *adm/* e execute os seguintes comandos: 
+```
+npm install
+npm run start
+```
+A aplicação estará acessível em http://localhost:4200
+
+<br/>
+<br/>
+
 <p align="center">
 	<img alt="Logo Inspiring" src="https://github.com/StefaniniInspiring/desafio/blob/main/imgs/inspiring-logo.png?raw=true" width="360">
 </p>
@@ -157,3 +186,4 @@ A tela `desafio/adm/src/app/pages/cadastro-ofertas` permite a criação/edição
 	**OBS:** É importante dar um retorno ao usuário, informando que deu certo ou não sua operação.
 
 3. Ao finalizar a operação, redirecione o usuário à tela de Nossas Ofertas, que deve possuir as informações mais atualizadas.
+
