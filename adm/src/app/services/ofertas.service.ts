@@ -11,22 +11,22 @@ export class OfertasService {
 
   constructor() { }
 
-  getOfertas(): IOferta[] {
+  getAll(): IOferta[] {
     return JSON.parse(localStorage.getItem(this.KEY))
   }
 
-  getOfertaById(id: number): IOferta {
+  getById(id: number): IOferta {
     const ofertas: IOferta[] = JSON.parse(localStorage.getItem(this.KEY))
     return ofertas.find((oferta) => oferta.id == id)
   }
 
   isUniqueId(id: number): boolean {
-    const ofertas: IOferta[] = this.getOfertas()
+    const ofertas: IOferta[] = this.getAll()
     return !ofertas.some((oferta) => oferta.id == id)
   }
 
-  saveOferta(idOferta: number, ofertaEdited: OfertaModel): boolean {
-    const ofertasStorage = this.getOfertas()
+  save(idOferta: number, ofertaEdited: OfertaModel): boolean {
+    const ofertasStorage = this.getAll()
     const ofertasWithoutObj = ofertasStorage.filter(ofertaObj => {
       return ofertaObj.id != idOferta
     })
@@ -39,8 +39,8 @@ export class OfertasService {
     return true
   }
 
-  createOferta(newOferta: OfertaModel): boolean {
-    const newOfertasStorage = [...this.getOfertas(), newOferta]
+  create(newOferta: OfertaModel): boolean {
+    const newOfertasStorage = [...this.getAll(), newOferta]
     localStorage.setItem("ofertas-game-tracker", JSON.stringify(newOfertasStorage));
     return true
   }

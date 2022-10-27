@@ -24,7 +24,7 @@ export class CadastroOfertasComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id']
     if(id){
-      this.oferta = this.ofertasService.getOfertaById(Number.parseInt(id))
+      this.oferta = this.ofertasService.getById(Number.parseInt(id))
       this.title = "Edição de oferta"
     }
   }

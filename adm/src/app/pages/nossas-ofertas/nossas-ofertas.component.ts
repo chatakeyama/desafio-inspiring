@@ -16,7 +16,7 @@ export class NossasOfertasComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit(): void {
-    this.dataSource = this.ofertasService.getOfertas()
+    this.dataSource = this.ofertasService.getAll()
   }
 
 }

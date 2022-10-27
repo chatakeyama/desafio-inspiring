@@ -82,7 +82,7 @@ export class FormCadastroComponent implements OnInit {
 
   onSubmit() {
     const ofertaModel = new OfertaModel(this.ofertaForm.value)
-    const success = this.isNewOferta ? this.ofertaService.createOferta(ofertaModel) : this.ofertaService.saveOferta(this.idOferta, ofertaModel)
+    const success = this.isNewOferta ? this.ofertaService.create(ofertaModel) : this.ofertaService.save(this.idOferta, ofertaModel)
     if (success) {
       this.toastr.success('Salvo com sucesso!');
       this.router.navigate(['/nossas-ofertas']);
