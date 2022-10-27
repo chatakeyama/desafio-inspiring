@@ -16,27 +16,22 @@ export class OfertasService {
   }
 
   getById(id: number): IOferta {
-    const ofertas: IOferta[] = JSON.parse(localStorage.getItem(this.KEY))
-    return ofertas.find((oferta) => oferta.id == id)
+    return this.getAll().find((oferta) => oferta.id === id)
   }
 
   isUniqueId(id: number): boolean {
-    const ofertas: IOferta[] = this.getAll()
-    return !ofertas.some((oferta) => oferta.id == id)
+    return !this.getAll().some((oferta) => oferta.id === id)
   }
 
-  save(idOferta: number, ofertaEdited: OfertaModel): boolean {
+  save(originalId: number, ofertaEdited: OfertaModel): boolean {
     const ofertasStorage = this.getAll()
-    const ofertasWithoutObj = ofertasStorage.filter(ofertaObj => {
-      return ofertaObj.id != idOferta
-    })
-    if (ofertasStorage.length == ofertasWithoutObj.length) {
-      return false
+    const indexOferta = ofertasStorage.findIndex((oferta) => oferta.id === originalId)
+    if (indexOferta) {
+      ofertasStorage[indexOferta] = ofertaEdited
+      localStorage.setItem("ofertas-game-tracker", JSON.stringify(ofertasStorage))
+      return true
     }
-    const newOfertasStorage = [...ofertasWithoutObj, ofertaEdited]
-    localStorage.removeItem('ofertas-game-tracker')
-    localStorage.setItem("ofertas-game-tracker", JSON.stringify(newOfertasStorage));
-    return true
+    return false
   }
 
   create(newOferta: OfertaModel): boolean {

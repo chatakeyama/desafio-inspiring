@@ -59,7 +59,7 @@ export class FormCadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.ofertaForm.patchValue(this.dataForm)
-    this.idOferta = this.route.snapshot.params['id']
+    this.idOferta = Number(this.route.snapshot.params['id'])
     this.idOferta ? this.isNewOferta = false : this.isNewOferta = true
   }
 
@@ -72,8 +72,9 @@ export class FormCadastroComponent implements OnInit {
 
   uniqueIdValidator(): ValidatorFn | null {
     return (control: AbstractControl): ValidationErrors => {
-      if (this.isNewOferta) {
-        const isUnique = this.ofertaService.isUniqueId(control.value)
+      const idForm = Number(control.value)
+      if (this.idOferta !== idForm) {
+        const isUnique = this.ofertaService.isUniqueId(Number(control.value))
         return isUnique ? null : { notUnique: { value: control.value } };
       }
       return null
@@ -86,7 +87,7 @@ export class FormCadastroComponent implements OnInit {
     if (success) {
       this.toastr.success('Salvo com sucesso!');
       this.router.navigate(['/nossas-ofertas']);
-    }else{
+    } else {
       this.toastr.error('Houve um erro e a oferta não foi salva. Tente novamente mais tarde. ');
     }
   }
