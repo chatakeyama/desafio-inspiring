@@ -25,17 +25,9 @@
   &__content {
     display: flex;
     align-items: center;
-    width: 1190px;
 
-    @media (max-width: $desktop-lg) {
-      width: 780px;
-    }
-    @media (min-width: $desktop-sm) and (max-width: $desktop-md) {
-      width: 740px;
-    }
     @media (max-width: $desktop-sm) {
       justify-content: center;
-      width: 304px;
     }
   }
 }

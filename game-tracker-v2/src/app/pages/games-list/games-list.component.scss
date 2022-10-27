@@ -19,7 +19,7 @@
   gap: 20px;
 
   @media (max-width: $desktop-lg) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: $desktop-sm) {
     grid-template-columns: 1fr;
@@ -29,18 +29,10 @@
 .row {
   display: flex;
   justify-content: space-between;
-  width: 1190px;
   margin-bottom: 37px;
 
-  @media (max-width: $desktop-lg) {
-    width: 780px;
-  }
-  @media (min-width: $desktop-sm) and (max-width: $desktop-md) {
-    width: 740px;
-  }
   @media (max-width: $desktop-sm) {
     align-items: flex-end;
-    width: 304px;
     margin-bottom: 23px;
   }
 }
