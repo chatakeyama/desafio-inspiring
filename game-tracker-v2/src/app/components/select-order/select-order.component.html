@@ -1,6 +1,14 @@
-<div class="order">
-  <label class="order__label" for="order">Ordenar por:</label>
-  <select class="order__select" name="order" id="order" (change)="onSelect($event)">
-    <option *ngFor="let option of options" value={{option.value}}>{{option.text}}</option>
-  </select>
+<div class="dropdown">
+  <span class="dropdown__label">Ordenar por:</span>
+  <div class="dropdown__select">
+    <button #buttonSelect (click)="onDropdownButtonClick()" class="dropdown__button" aria-labelledby="dropdown__label">
+      {{selectedOptionText}}
+      <img class="dropdown__icon" src="/assets/images/expand_more_24px.png" alt="Ícone de expandir">
+    </button>
+    <div class="dropdown__content" [ngStyle]="{'display': display ? 'block' : 'none' }">
+      <a *ngFor="let option of options" href="javascript:void(0)"
+        [ngClass]="{'active': option.text === selectedOptionText}"
+        (click)="onSelectOption(option.value)">{{option.text}}</a>
+    </div>
+  </div>
 </div>

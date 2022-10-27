@@ -7,64 +7,101 @@
   font-weight: 100;
 }
 
-.order {
+.show {
+  display: block;
+}
+
+.active {
+  color: $secondary !important;
+  font-weight: 400;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+
   @media (max-width: $desktop-sm) {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    font-size: 14px;
+    width: 122px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  a:hover {
+    color: $secondary;
   }
 
   &__label {
-    @include font;
-    font-weight: 700;
     margin-right: 20px;
-
     @media (max-width: $desktop-sm) {
+      margin-right: 0;
       font-size: 11px;
-      padding-bottom: 4px;
+      margin-bottom: 4px;
     }
   }
 
   &__select {
+    position: relative;
     width: 180px;
-    height: 50px;
+
+    @media (max-width: $desktop-sm) {
+      width: 122px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    text-align: start;
     background-color: $primary;
-    border: none;
     border-radius: $radius-desktop;
-    @include font;
     padding-left: 17px;
     padding-right: 20px;
-
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("/assets/images/expand_more_24px.png");
-    background-repeat: no-repeat;
-    background-position: calc(100% - 13px) center;
-
+    height: 50px;
+    @include font;
+    border: none;
+    cursor: pointer;
     @media (max-width: $desktop-sm) {
       font-size: 14px;
       width: 122px;
       padding-left: 8px;
       height: 36px;
-      background-image: url("/assets/images/expand_more_mobile.png");
-      background-position: calc(100% - 8px) center;
     }
+  }
 
-    option {
-      @include font;
-      
+  &__content {
+    width: 100%;
+    margin-top: -$radius-desktop;
+    @include font;
+    border-radius: 0 0 $radius-desktop $radius-desktop;
+    position: absolute;
+    background-color: $primary;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    @media (max-width: $desktop-sm) {
+      font-size: 14px;
+    }
+    a {
+      color: $text;
+      padding: 11.5px 16px;
+      text-decoration: none;
+      display: block;
       @media (max-width: $desktop-sm) {
-        font-size: 15px;
+        padding: 9px 11px;
       }
     }
+  }
 
-    option:checked {
-      color: $secondary;
-    }
-
-    &__first-option {
-      color: $secondary;
+  &__icon {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    @media (max-width: $desktop-sm) {
+      top: 9px;
+      right: 5px;
+      width: 18px;
     }
   }
 }
