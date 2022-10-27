@@ -35,7 +35,10 @@ export class FormCadastroComponent implements OnInit {
     { id: 3, nome: 'Steam' },
   ];
 
+  @Input() dataForm: IOferta
   oferta = {} as IOferta
+  isNewOferta: boolean
+  idOferta: number
 
   ofertaForm = new FormGroup({
     id: new FormControl(this.oferta.id, [Validators.required, onlyIntegerNumberValidator(), this.uniqueIdValidator()]),
@@ -46,11 +49,6 @@ export class FormCadastroComponent implements OnInit {
     loja: new FormControl(this.oferta.loja, [Validators.required])
   }, { validators: precoDescontoValidator() })
 
-  @Input() dataForm: IOferta
-
-  isNewOferta: boolean
-  idOferta: number
-
   constructor(private ofertaService: OfertasService,
     private route: ActivatedRoute,
     private router: Router,
@@ -60,7 +58,7 @@ export class FormCadastroComponent implements OnInit {
   ngOnInit(): void {
     this.ofertaForm.patchValue(this.dataForm)
     this.idOferta = Number(this.route.snapshot.params['id'])
-    this.idOferta ? this.isNewOferta = false : this.isNewOferta = true
+    this.isNewOferta = !this.idOferta
   }
 
   get id() { return this.ofertaForm.get('id') }
@@ -85,10 +83,10 @@ export class FormCadastroComponent implements OnInit {
     const ofertaModel = new OfertaModel(this.ofertaForm.value)
     const success = this.isNewOferta ? this.ofertaService.create(ofertaModel) : this.ofertaService.save(this.idOferta, ofertaModel)
     if (success) {
-      this.toastr.success('Salvo com sucesso!');
-      this.router.navigate(['/nossas-ofertas']);
+      this.toastr.success('Salvo com sucesso.')
+      this.router.navigate(['/nossas-ofertas'])
     } else {
-      this.toastr.error('Houve um erro e a oferta não foi salva. Tente novamente mais tarde. ');
+      this.toastr.error('Houve um erro e a oferta não foi salva. Tente novamente mais tarde.');
     }
   }
 
