@@ -11,23 +11,37 @@
   color: white;
   height: 50px;
 
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
 
-  &__logo {
-    margin-right: 15px;
-  }
-
   &__content {
     display: flex;
     align-items: center;
 
     @media (max-width: $desktop-sm) {
+      display: flex;
       justify-content: center;
+    }
+  }
+
+  &__logo {
+    margin-right: 15px;
+  }
+
+  &__link {
+    align-items: center;
+    color: #fff;
+    display: inline-flex;
+
+    &:link {
+      text-decoration: none;
+    }
+    &:visited {
+      text-decoration: none;
     }
   }
 }
