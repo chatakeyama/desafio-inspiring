@@ -26,7 +26,7 @@ export class OfertasService {
   save(originalId: number, ofertaEdited: OfertaModel): boolean {
     const ofertasStorage = this.getAll()
     const indexOferta = ofertasStorage.findIndex((oferta) => oferta.id === originalId)
-    if (indexOferta) {
+    if (indexOferta !== -1) {
       ofertasStorage[indexOferta] = ofertaEdited
       localStorage.setItem("ofertas-game-tracker", JSON.stringify(ofertasStorage))
       return true
